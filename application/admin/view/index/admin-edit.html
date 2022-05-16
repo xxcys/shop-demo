@@ -1,0 +1,172 @@
+{include file="public/head" /}
+<body>
+<article class="page-container">
+	<form class="form form-horizontal" id="form-admin-add" action="{:url('admin/user/userEdit')}" method="post">
+		<p>仅可修改自己的信息</p>
+		<input type="hidden"  name="id" value="{$id}">
+
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="{$username}" placeholder="" id="username" name="username">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>原密码：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="oldpassword" name="oldpassword">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>新密码：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="password" class="input-text" autocomplete="off" id=""  placeholder="确认新密码" id="newpassword" name="newpassword">
+		</div>
+	</div>
+
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="" id="userphone" name="userphone">
+		</div>
+	</div>
+	<div class="row cl">
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;" >
+			<!--<button class="btn btn-primary radius" type="submit" id="subButton">提交</button>-->
+
+		</div>
+	</div>
+
+	</form>
+</article>
+
+{include file="public/footer" /}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+	// var subButton = document.getElementById('subButton');
+
+	// console.log(username);
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	//
+	// $(document).ready(function(){
+	// 	$("button").click(function(){
+	// 	console.log(username);
+	// 		console.log(newpassword);
+	// 			$.ajax({
+	// 				url: "{:url('admin/user/userEdit')}",    //请求的url地址
+	// 				type: "POST",   //请求方式
+	// 				dataType: "json",   //返回格式为json
+	// 				// async: true, //请求是否异步，默认为异步，这也是ajax重要特性
+	// 				data: {
+	// 					id:id,
+	// 					username:username,
+	// 					oldpassword:oldpassword,
+	// 					newpassword:newpassword,
+	// 					userphone:userphone
+	// 				},    //参数值
+	// 				success: function(data) {
+	// 					console.log(data.code);
+	// 					if (data.code == 200){
+	// 						layer.msg(data.msg,{icon:1,time:1000});
+	// 						// var index = parent.layer.getFrameIndex(window.name);
+	// 						// parent.$('.btn-refresh').click();
+	// 						// parent.layer.close(index);
+	// 					}else {
+	// 						layer.msg(data.msg,{icon:1,time:1000});
+	// 						$(" #oldpassword").val("");
+	// 						$(" #newpassword").val("");
+	// 					}
+	//
+	// 				},
+	// 				error: function(XmlHttpRequest, textStatus, errorThrown){
+	// 					layer.msg("修改失败",{icon:1,time:1000});
+	// 				}
+	// 			});
+	// 	});
+	// });
+	$("#form-admin-add").validate({
+		rules:{
+			username:{
+				required:true,
+				minlength:3,
+				maxlength:16
+			},
+			oldpassword:{
+				required:true,
+			},
+			newpassword:{
+				required:true,
+			},
+			userphone:{
+				required:true,
+
+			},
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+
+
+		// submitHandler:function(form){
+		// 	$(form).ajaxSubmit({
+		// 		type: 'post',
+		// 		url: "{:url('admin/user/userEdit')}" ,
+		// 		// dataType:'json',
+		// 		data:{
+		// 			id:id,
+		// 			username:username,
+		// 			oldpassword:oldpassword,
+		// 			newpassword:newpassword,
+		// 			userphone:userphone
+		// 		},
+		// 		success: function(data){
+		// 			layer.msg(data.msg,{icon:1,time:1000});
+		// 			var index = parent.layer.getFrameIndex(window.name);
+		// 			parent.$('.btn-refresh').click();
+		// 			parent.layer.close(index);
+		// 		},
+        //         error: function(XmlHttpRequest, textStatus, errorThrown){
+		// 			layer.msg(data.msg,{icon:1,time:1000});
+		// 		}
+		// 	});
+		// }
+	});
+	// $("subButton").click(function(){
+	// 	$.ajax({
+	// 		url: "{:url('admin/user/userAdd')}",    //请求的url地址
+	// 		dataType: "json",   //返回格式为json
+	// 		async: true, //请求是否异步，默认为异步，这也是ajax重要特性
+	// 		data: {
+	// 				username:username,
+	// 				password:password,
+	// 				userphone:userphone
+	// 		},    //参数值
+	// 		type: "POST",   //请求方式
+	//
+	// 		success: function(data) {
+	// 				layer.msg(data.msg,{icon:1,time:1000});
+	// 				var index = parent.layer.getFrameIndex(window.name);
+	// 				parent.$('.btn-refresh').click();
+	// 				parent.layer.close(index);
+	// 		},
+	//
+	// 		error: function(XmlHttpRequest, textStatus, errorThrown){
+	// 			layer.msg("添加失败",{icon:1,time:1000});
+	// 		}
+	// 	});
+	// });
+});
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

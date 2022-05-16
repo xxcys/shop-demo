@@ -1,0 +1,69 @@
+<div class="container">
+    <!-- 头部 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#"><img src="/static/index/images/logo.jpg" width="60px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="groay.html">商品分类</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">购物车</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        同人社区
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">分类</a>
+                        <a class="dropdown-item" href="#">绘画</a>
+                        <a class="dropdown-item" href="#">小说</a>
+                    </div>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        收藏夹
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">收藏的宝贝</a>
+                        <a class="dropdown-item" href="#">收藏的店铺</a>
+                    </div>
+                </li>
+
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <form class="form-inline">
+                    <div class="sear">
+                        <i class="fa fa-search"></i>
+                        <input class="form-control " type="text" placeholder="Search">
+                        <button class="btn btn-dark" style="margin: 0px 10px 0px 5px;" type="submit">Search</button>
+                    </div>
+
+                </form>
+                <li class="nav-item">
+
+                    <a class="nav-link" href="{:url('index/login/index')}" style="display: inline-block;">登录</a>/
+                    <a class="nav-link" href="{:url('index/register/index')}" style="display: inline-block;"> 注册</a>
+
+                    <a class="nav-link" href="log.html" style="display: inline-block;">{$admin.mname}</a>
+
+
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">联系客服</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>

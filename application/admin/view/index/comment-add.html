@@ -1,0 +1,139 @@
+
+{include file="public/head" /}
+<body>
+<article class="page-container">
+	<form class="form form-horizontal" id="form-admin-add" action="{:url('admin/comment/commentAdd')}" method="post">
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>评论人：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="" id="comment_autor" name="comment_autor">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>评论：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" autocomplete="off" value="" placeholder="" id="comment" name="comment">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品(id)：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="" id="sid" name="sid">
+		</div>
+	</div>
+
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品颜色(id)：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="" id="com_color" name="com_color">
+		</div>
+	</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品尺寸(id)：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="com_size" name="com_size">
+			</div>
+		</div>
+	<div class="row cl">
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;" >
+			<!--<button class="btn btn-primary radius" type="submit" id="subButton">提交</button>-->
+
+		</div>
+	</div>
+	</form>
+</article>
+
+{include file="public/footer" /}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+
+
+$(function(){
+	// var subButton = document.getElementById('subButton');
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+	$("#form-admin-add").validate({
+		rules:{
+			username:{
+				required:true,
+				minlength:3,
+				maxlength:16
+			},
+			password:{
+				required:true,
+			},
+			password2:{
+				required:true,
+				equalTo: "#password"
+			},
+			userphone:{
+				required:true,
+				isPhone:true,
+			},
+
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+
+
+		// submitHandler:function(form){
+		// 	$(form).ajaxSubmit({
+
+				// type: 'post',
+				// url: "{:url('admin/user/userAdd')}" ,
+				// data:{
+				// 	username:username,
+				// 	password:password,
+				// 	userphone:userphone
+				// },
+				// success: function(data){
+				// 	layer.msg(data.msg,{icon:1,time:1000});
+				// 	var index = parent.layer.getFrameIndex(window.name);
+				// 	parent.$('.btn-refresh').click();
+				// 	parent.layer.close(index);
+				// },
+                // error: function(XmlHttpRequest, textStatus, errorThrown){
+				// 	layer.msg(data.msg,{icon:1,time:1000});
+				// }
+			// });
+		// }
+	});
+	// $("subButton").click(function(){
+	// 	$.ajax({
+	// 		url: "{:url('admin/user/userAdd')}",    //请求的url地址
+	// 		dataType: "json",   //返回格式为json
+	// 		async: true, //请求是否异步，默认为异步，这也是ajax重要特性
+	// 		data: {
+	// 				username:username,
+	// 				password:password,
+	// 				userphone:userphone
+	// 		},    //参数值
+	// 		type: "POST",   //请求方式
+	//
+	// 		success: function(data) {
+	// 				layer.msg(data.msg,{icon:1,time:1000});
+	// 				var index = parent.layer.getFrameIndex(window.name);
+	// 				parent.$('.btn-refresh').click();
+	// 				parent.layer.close(index);
+	// 		},
+	//
+	// 		error: function(XmlHttpRequest, textStatus, errorThrown){
+	// 			layer.msg("添加失败",{icon:1,time:1000});
+	// 		}
+	// 	});
+	// });
+});
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
